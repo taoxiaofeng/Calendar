@@ -44,3 +44,29 @@ function getNextMonthRestDays(year, month) {
     }
     return restDays;
 }
+
+/**
+ * 获取时间信息
+ */
+function getDateInfo(timeStamp) {
+    var date = timeStamp ? new Date(timeStamp) : new Date();
+
+    return [
+        date.getFullYear(),
+        date.getMonth() + 1,
+        date.getDate()
+    ];
+}
+
+/**
+ * 获取格式化时间
+ */
+function getFormatDate(year, month, date) {
+     const dateArr = [year, month, date];
+
+     for (let i = 1; i < dateArr.length; i++) {
+        dateArr[i] < 10 && (dateArr[i] = '0' + dateArr[i]);
+     }
+
+     return dateArr.join('-');
+}
