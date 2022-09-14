@@ -29,3 +29,18 @@ function getLastMonthRestDays(year, month) {
 
     return restDays.reverse();
 }
+
+/**
+ * 获取 日历当月后面剩余的天数
+ */
+function getNextMonthRestDays(year, month) {
+    const lastMonthRestDayCount = getFirstWeekDay(year, month);
+    const currentMonthDayCount = getMonthDayCount(year, month);
+
+    const nextMountRestDayCount = 42 - (lastMonthRestDayCount + currentMonthDayCount);
+    let restDays = [];
+    for (let i = 1; i <= nextMountRestDayCount; i++) {
+        restDays.push(i);
+    }
+    return restDays;
+}
