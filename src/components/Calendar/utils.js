@@ -70,3 +70,13 @@ function getFormatDate(year, month, date) {
 
      return dateArr.join('-');
 }
+
+
+export {
+    getFirstWeekDay,
+    getMonthDayCount,
+    getLastMonthRestDays,
+    getNextMonthRestDays,
+    getDateInfo,
+    getFormatDate
+}
