@@ -99,3 +99,20 @@ function createCurrentDaysTD(currentDayCount, year, month) {
 
   return tdArr;
 }
+
+// 创建控制区域
+export function createControlArea (year, month   ) {
+   const oArea = document.createElement('div');
+   oArea.className = 'control-area';
+
+   oArea.innerHTML  =  `
+    <span></span>
+    <span></span>
+    <span>
+      <span></span>
+      <span></span>
+    </span>
+    <span></span>
+    <span></span>
+   `;
+}

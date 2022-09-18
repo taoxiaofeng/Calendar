@@ -4,8 +4,7 @@ import event from './event';
 import './index.scss';
 
 export default (handler) => {
-    const oContainer = document.createElement('table');
-    // oContainer.border = '1';
+    const oContainer = document.createElement('div');
     oContainer.className = 'my-calendar';
 
     // 执行event
