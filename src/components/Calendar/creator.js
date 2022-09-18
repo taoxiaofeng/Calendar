@@ -1,6 +1,6 @@
 // 导入周配置
 import { WEEK_DAYS } from './config';
-import { getLastMonthRestDays, getMonthDayCount, getNextMonthRestDays, getDateInfo } from './utils';
+import { getLastMonthRestDays, getMonthDayCount, getNextMonthRestDays, getDateInfo, getFormatDate } from './utils';
 
 // 创建 周日 周一 周二 周三 周四 周五 周六 节点
 export function createWeekDaysNode() {
@@ -41,7 +41,7 @@ export function createDateNode(year, month) {
 
   // 记步
   let index = 0;
-  
+
   dateTrArr.forEach(tr => {
     for (let i = 0; i < 7; i++) {
       tr.appendChild(tdArr[index]);
@@ -50,7 +50,7 @@ export function createDateNode(year, month) {
   });
 
   return dateTrArr;
-} 
+}
 
 // 创建tr
 export function createDateTrs(count) {
@@ -91,6 +91,8 @@ function createCurrentDaysTD(currentDayCount, year, month) {
     }
 
     oTd.innerText = i;
+    // 在td上增加一个自定义属性，把时间放在td的自定义属性上
+    oTd.setAttribute('data-date', getFormatDate(year, month, i))
 
     tdArr.push(oTd);
   }

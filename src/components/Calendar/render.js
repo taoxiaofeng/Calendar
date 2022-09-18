@@ -8,14 +8,25 @@ export function render(container) {
   const oTBody = document.createElement('tbody');
   const weekDayNode = createWeekDaysNode();
 
-   oTBody.className = 'my-calendar-body';
-   
+  oTBody.className = 'my-calendar-body';
+
 
   return function (year, month) {
+    // 取出创建号的节点
+    const dateTrs = createDateNode(year, month);
+
     // 那周节点添加到tHead中
     oTHead.appendChild(weekDayNode);
-    // 将tHead节点添加到容器中
+
+    // 把tr放到tbody 中
+    dateTrs.forEach(tr => {
+      oTBody.appendChild(tr);
+    })
+
+    // 将thead节点添加到容器中 
     container.appendChild(oTHead);
+    // 将tbody节点添加到容器中
+    container.appendChild(oTBody);
 
     const obj = createDateNode(year, month);
     console.log(obj);
@@ -23,7 +34,14 @@ export function render(container) {
   }
 }
 
+// 更新日历内容
+export function update(year, month) {
+  const oTBody = document.querySelector('.my-calendar-body');
+  const dateTrs = createDateNode(year, month);
+  oTBody.innerHTML = '';
 
-export function update() {
 
+  dateTrs.forEach(tr => {
+    oTBody.appendChild(tr);
+  });
 } 
